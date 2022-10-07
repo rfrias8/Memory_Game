@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03E4F2628F0A29000422297 /* MemoryGame_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E4F2528F0A29000422297 /* MemoryGame_ViewModel.swift */; };
+		C03E4F2828F0A2C100422297 /* MemoryGame_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E4F2728F0A2C100422297 /* MemoryGame_Model.swift */; };
 		C0EDB5FF28EFDF0E0038AE29 /* Memory_GameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB5FE28EFDF0E0038AE29 /* Memory_GameApp.swift */; };
 		C0EDB60128EFDF0E0038AE29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB60028EFDF0E0038AE29 /* ContentView.swift */; };
 		C0EDB60328EFDF100038AE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0EDB60228EFDF100038AE29 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C03E4F2528F0A29000422297 /* MemoryGame_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame_ViewModel.swift; sourceTree = "<group>"; };
+		C03E4F2728F0A2C100422297 /* MemoryGame_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame_Model.swift; sourceTree = "<group>"; };
 		C0EDB5FB28EFDF0E0038AE29 /* Memory_Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory_Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0EDB5FE28EFDF0E0038AE29 /* Memory_GameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_GameApp.swift; sourceTree = "<group>"; };
 		C0EDB60028EFDF0E0038AE29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				C0EDB5FE28EFDF0E0038AE29 /* Memory_GameApp.swift */,
 				C0EDB60028EFDF0E0038AE29 /* ContentView.swift */,
+				C03E4F2528F0A29000422297 /* MemoryGame_ViewModel.swift */,
+				C03E4F2728F0A2C100422297 /* MemoryGame_Model.swift */,
 				C0EDB60228EFDF100038AE29 /* Assets.xcassets */,
 				C0EDB60428EFDF100038AE29 /* Preview Content */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03E4F2828F0A2C100422297 /* MemoryGame_Model.swift in Sources */,
+				C03E4F2628F0A29000422297 /* MemoryGame_ViewModel.swift in Sources */,
 				C0EDB60128EFDF0E0038AE29 /* ContentView.swift in Sources */,
 				C0EDB5FF28EFDF0E0038AE29 /* Memory_GameApp.swift in Sources */,
 			);
