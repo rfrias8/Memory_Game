@@ -15,26 +15,40 @@ struct ContentView: View {
             CardView()
             CardView()
         }
+        .padding(.horizontal)
         .foregroundColor(.red)
+        
     }
 }
 
+//These are what the cards look like and contain inside
 struct CardView: View {
     var body: some View {
         ZStack {
-            Circle()
-                .stroke(lineWidth: 2)
-            Text("😆")
+            if faceUp {
+                Circle()
+                    .fill()
+                    .foregroundColor(.white)
+                Circle()
+                    .stroke(lineWidth: 4)
+                Text("😎")
+                    .font(.largeTitle)
+            }else {
+                Circle()
+                    .fill()
+            }
         }
-    }.padding()
+    }
 }
-
-
 
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.light)
+        ContentView()
+            .preferredColorScheme(.dark)
     }
+    
 }
