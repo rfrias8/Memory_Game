@@ -8,21 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
+    
+    @State var emojiCount = 30
+     
+
     var body: some View {
-        HStack {
-            CardView()
-            CardView()
-            CardView()
-            CardView()
+        ScrollView{
+            VStack{
+                LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
+                    ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
+                        CardView(icon: emoji)
+                    })
+                })
+            }
+            .padding(.horizontal)
+            .foregroundColor(.red)
         }
-        .padding(.horizontal)
-        .foregroundColor(.red)
         
     }
 }
 
 //These are what the cards look like and contain inside
 struct CardView: View {
+    var icon: String
+    
+    @State var faceUp: Bool = false
+    
     var body: some View {
         ZStack {
             if faceUp {
@@ -31,12 +43,15 @@ struct CardView: View {
                     .foregroundColor(.white)
                 Circle()
                     .stroke(lineWidth: 4)
-                Text("😎")
+                Text(icon)
                     .font(.largeTitle)
             }else {
                 Circle()
                     .fill()
             }
+        }
+        .onTapGesture{
+            faceUp.toggle()
         }
     }
 }
