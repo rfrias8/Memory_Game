@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
     
-    @State var emojiCount = 30
+    @State var emojiCount = 20
      
 
     var body: some View {
@@ -19,6 +19,7 @@ struct ContentView: View {
                 LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
                     ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
                         CardView(icon: emoji)
+                            .aspectRatio(3/4, contentMode: .fit)
                     })
                 })
             }
@@ -33,20 +34,22 @@ struct ContentView: View {
 struct CardView: View {
     var icon: String
     
-    @State var faceUp: Bool = false
+    @State var faceUp: Bool = true
     
     var body: some View {
         ZStack {
             if faceUp {
-                Circle()
+                RoundedRectangle(cornerRadius: 15)
                     .fill()
                     .foregroundColor(.white)
-                Circle()
+                RoundedRectangle(cornerRadius: 15)
                     .stroke(lineWidth: 4)
                 Text(icon)
                     .font(.largeTitle)
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    
             }else {
-                Circle()
+                RoundedRectangle(cornerRadius: 15)
                     .fill()
             }
         }
