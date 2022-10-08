@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+
+
 class AnimalMemoryGame {
-    private var model: MemoryGame<String> = MemoryGame<String>(cardPairsCount: 14)
+    static let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
+    
+    private var model: MemoryGame<String> =
+    MemoryGame<String>(cardPairsCount: 14, createCardContent: {(indexOfPair:Int) -> String in
+        return AnimalMemoryGame.emojis[indexOfPair]
+    })
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards

@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
     
-    @State var emojiCount = 20
+    @State var emojiCount = 24
      
 
     var body: some View {
