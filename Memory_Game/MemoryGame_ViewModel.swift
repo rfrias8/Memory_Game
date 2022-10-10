@@ -13,11 +13,17 @@ class AnimalMemoryGame {
     static let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
     
     private var model: MemoryGame<String> =
-    MemoryGame<String>(cardPairsCount: 14, createCardContent: {(indexOfPair:Int) -> String in
+    MemoryGame<String>(cardPairsCount: 24, createCardContent: {(indexOfPair:Int) -> String in
         return AnimalMemoryGame.emojis[indexOfPair]
     })
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
+    }
+    
+    //MARK: - Intent(s)
+    
+    func flip(_ card: MemoryGame<String>.Card) {
+        model.chooseCard(card)
     }
 }
