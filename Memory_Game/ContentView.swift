@@ -13,14 +13,12 @@ struct ContentView: View {
     
     var body: some View {
            ScrollView{
-               VStack{
-                   LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
-                       ForEach(viewModel.cards, content: { card in
-                           CardView(card: card)
-                               .aspectRatio(3/4, contentMode: .fit)
-                       })
+               LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
+                   ForEach(viewModel.cards, content: { card in
+                       CardView(card: card)
+                           .aspectRatio(3/4, contentMode: .fit)
                    })
-               }
+               })
                .padding(.horizontal)
                .foregroundColor(.red)
            }
