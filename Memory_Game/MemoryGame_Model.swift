@@ -11,8 +11,20 @@ import Foundation
 struct MemoryGame<CardIcon>{
     private(set) var cards: Array<Card>
     
-    func chooseCard(_ card: Card) {//external name, internal name,
+    mutating func chooseCard(_ card: Card) {//external name, internal name,
+        let chosenIndex = index(of: card)
+        cards[chosenIndex].faceUp.toggle()
+        print("\(cards)")
         
+    }
+    
+    func index(of card: Card) -> Int {
+        for index in 0..<cards.count {
+            if cards[index].id == card.id{
+                return index
+            }
+        }
+        return 0
     }
     
     init(cardPairsCount: Int, createCardContent: (Int) -> CardIcon) {
@@ -28,7 +40,7 @@ struct MemoryGame<CardIcon>{
     struct Card: Identifiable{
         var id: Int
         //This is technically MemoryGame.Card since it is inside another struct
-        var faceUp: Bool = false
+        var faceUp: Bool = true
         var isMatch: Bool = false
         var icon: CardIcon
     }
