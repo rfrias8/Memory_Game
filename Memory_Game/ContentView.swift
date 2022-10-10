@@ -17,6 +17,9 @@ struct ContentView: View {
                    ForEach(viewModel.cards, content: { card in
                        CardView(card: card)
                            .aspectRatio(3/4, contentMode: .fit)
+                           .onTapGesture {
+                               viewModel.flip(card)
+                           }
                    })
                })
                .padding(.horizontal)
