@@ -20,12 +20,14 @@ struct MemoryGame<CardIcon>{
         //This for loop will take the num of cards and multiply by 2 and add them to the array
         for indexOfPair in 0..<cardPairsCount {
             let content: CardIcon = createCardContent(indexOfPair)
-            cards.append(Card(icon:content))
-            cards.append(Card(icon:content))
+            cards.append(Card(id:indexOfPair * 2, icon:content))
+            cards.append(Card(id:indexOfPair * 2+1, icon:content))
         }
     }
     
-    struct Card {//This is technically MemoryGame.Card since it is inside another struct
+    struct Card: Identifiable{
+        var id: Int
+        //This is technically MemoryGame.Card since it is inside another struct
         var faceUp: Bool = false
         var isMatch: Bool = false
         var icon: CardIcon

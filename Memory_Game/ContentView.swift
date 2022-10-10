@@ -9,41 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var emojiCount = 24
-     
-
+    var viewModel: AnimalMemoryGame
+    
     var body: some View {
-        ScrollView{
-            VStack{
-                LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
-                    ForEach(emojis[0..<emojiCount], id: \.self, content: { emoji in
-                        CardView(icon: emoji)
-                            .aspectRatio(3/4, contentMode: .fit)
-                    })
-                })
-            }
-            .padding(.horizontal)
-            .foregroundColor(.red)
-        }
-        
-    }
+           ScrollView{
+               VStack{
+                   LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
+                       ForEach(viewModel.cards, content: { card in
+                           CardView(card: card)
+                               .aspectRatio(3/4, contentMode: .fit)
+                       })
+                   })
+               }
+               .padding(.horizontal)
+               .foregroundColor(.red)
+           }
+           
+       }
 }
 
 //These are what the cards look like and contain inside
 struct CardView: View {
-    var icon: String
-    
-    @State var faceUp: Bool = true
+
+    var card: MemoryGame<String>.Card
     
     var body: some View {
         ZStack {
-            if faceUp {
+            if card.faceUp {
                 RoundedRectangle(cornerRadius: 15)
                     .fill()
                     .foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(lineWidth: 4)
-                Text(icon)
+                Text(card.icon)
                     .font(.largeTitle)
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     
@@ -52,9 +50,6 @@ struct CardView: View {
                     .fill()
             }
         }
-        .onTapGesture{
-            faceUp.toggle()
-        }
     }
 }
 
@@ -62,9 +57,12 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        
+        let game = AnimalMemoryGame()
+        
+        ContentView(viewModel: game)
             .preferredColorScheme(.light)
-        ContentView()
+        ContentView(viewModel: game)
             .preferredColorScheme(.dark)
     }
     
