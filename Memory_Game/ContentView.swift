@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var viewModel: AnimalMemoryGame
+    @ObservedObject var viewModel: AnimalMemoryGame
     
     var body: some View {
            ScrollView{
