@@ -9,13 +9,15 @@ import SwiftUI
 
 
 
-class AnimalMemoryGame {
+class AnimalMemoryGame: ObservableObject{
     static let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
     
-    private var model: MemoryGame<String> =
+    
+    @Published private var model: MemoryGame<String> =
     MemoryGame<String>(cardPairsCount: 24, createCardContent: {(indexOfPair:Int) -> String in
         return AnimalMemoryGame.emojis[indexOfPair]
     })
+    
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
