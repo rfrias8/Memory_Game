@@ -8,23 +8,40 @@
 
 import Foundation
 
-struct MemoryGame<CardIcon>{
+struct MemoryGame<CardIcon> where CardIcon: Equatable{
     private(set) var cards: Array<Card>
     
+    private var indexOfTheOnlyFaceUpCard: Int?
+    
     mutating func chooseCard(_ card: Card) {//external name, internal name,
-        let chosenIndex = index(of: card)
-        cards[chosenIndex].faceUp.toggle()
-        print("\(cards)")
+        if let chosenIndex = index(of: card),
+            !cards[chosenIndex].faceUp,
+            !cards[chosenIndex].isMatch {
+            if let potentialMatchIndex = indexOfTheOnlyFaceUpCard {
+                if cards[chosenIndex].icon == cards[potentialMatchIndex].icon{
+                    cards[chosenIndex].isMatch = true
+                    cards[potentialMatchIndex].isMatch = true
+                }
+                indexOfTheOnlyFaceUpCard = nil
+            } else {
+                for index in 0..<cards.count {
+                    cards[index].faceUp = false
+                }
+                indexOfTheOnlyFaceUpCard = chosenIndex
+            }
+            cards[chosenIndex].faceUp.toggle()
+        }
         
+        print("\(cards)")
     }
     
-    func index(of card: Card) -> Int {
+    func index(of card: Card) -> Int? {
         for index in 0..<cards.count {
             if cards[index].id == card.id{
                 return index
             }
         }
-        return 0
+        return nil
     }
     
     init(cardPairsCount: Int, createCardContent: (Int) -> CardIcon) {
@@ -40,7 +57,7 @@ struct MemoryGame<CardIcon>{
     struct Card: Identifiable{
         var id: Int
         //This is technically MemoryGame.Card since it is inside another struct
-        var faceUp: Bool = true
+        var faceUp: Bool = false
         var isMatch: Bool = false
         var icon: CardIcon
     }
