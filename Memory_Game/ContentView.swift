@@ -45,7 +45,9 @@ struct CardView: View {
                 Text(card.icon)
                     .font(.largeTitle)
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    
+            }else if card.isMatch{
+                RoundedRectangle(cornerRadius: 15)
+                    .opacity(0)
             }else {
                 RoundedRectangle(cornerRadius: 15)
                     .fill()
