@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
            ScrollView{
-               LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()], content:{
+               LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], content:{
                    ForEach(viewModel.cards, content: { card in
                        CardView(card: card)
                            .aspectRatio(3/4, contentMode: .fit)
@@ -35,24 +35,25 @@ struct CardView: View {
     var card: MemoryGame<String>.Card
     
     var body: some View {
-        ZStack {
-            if card.faceUp {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill()
-                    .foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(lineWidth: 4)
-                Text(card.icon)
-                    .font(.largeTitle)
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            }else if card.isMatch{
-                RoundedRectangle(cornerRadius: 15)
-                    .opacity(0)
-            }else {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill()
+        GeometryReader(content: {geometry in
+            ZStack {
+                if card.faceUp {
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill()
+                        .foregroundColor(.white)
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(lineWidth: 4)
+                    Text(card.icon)
+                        .font(Font.system(size: min(geometry.size.width,geometry.size.height) * 0.75))
+                }else if card.isMatch{
+                    RoundedRectangle(cornerRadius: 15)
+                        .opacity(0)
+                }else {
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill()
+                }
             }
-        }
+        })
     }
 }
 
