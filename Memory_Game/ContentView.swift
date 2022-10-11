@@ -12,6 +12,13 @@ struct ContentView: View {
     @ObservedObject var viewModel: AnimalMemoryGame
     
     var body: some View {
+        VStack {
+            gameBody
+            shuffle
+        }
+    }
+    
+    var gameBody: some View {
            ScrollView{
                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], content:{
                    ForEach(viewModel.cards, content: { card in
@@ -26,7 +33,15 @@ struct ContentView: View {
                .foregroundColor(.red)
            }
            
-       }
+    }
+    
+    var shuffle: some View {
+        Button("Shuffle") {
+            withAnimation {
+                viewModel.shuffle()
+            }
+        }
+    }
 }
 
 //These are what the cards look like and contain inside

@@ -14,7 +14,7 @@ class AnimalMemoryGame: ObservableObject{
     
     
     @Published private var model: MemoryGame<String> =
-    MemoryGame<String>(cardPairsCount: 24, createCardContent: {(indexOfPair:Int) -> String in
+    MemoryGame<String>(cardPairsCount: 6, createCardContent: {(indexOfPair:Int) -> String in
         return AnimalMemoryGame.emojis[indexOfPair]
     })
     
@@ -27,5 +27,9 @@ class AnimalMemoryGame: ObservableObject{
     
     func flip(_ card: MemoryGame<String>.Card) {
         model.chooseCard(card)
+    }
+    
+    func randomize() {
+        model.shuffle()
     }
 }
