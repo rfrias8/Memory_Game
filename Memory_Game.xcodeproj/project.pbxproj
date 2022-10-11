@@ -13,6 +13,7 @@
 		C0EDB60128EFDF0E0038AE29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EDB60028EFDF0E0038AE29 /* ContentView.swift */; };
 		C0EDB60328EFDF100038AE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0EDB60228EFDF100038AE29 /* Assets.xcassets */; };
 		C0EDB60628EFDF100038AE29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0EDB60528EFDF100038AE29 /* Preview Assets.xcassets */; };
+		C0F4FBEF28F60E3200B61982 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0F4FBEE28F60E3200B61982 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		C0EDB60028EFDF0E0038AE29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0EDB60228EFDF100038AE29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0EDB60528EFDF100038AE29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0F4FBEE28F60E3200B61982 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				C0EDB5FE28EFDF0E0038AE29 /* Memory_GameApp.swift */,
 				C0EDB60028EFDF0E0038AE29 /* ContentView.swift */,
+				C0F4FBEE28F60E3200B61982 /* README.txt */,
 				C03E4F2528F0A29000422297 /* MemoryGame_ViewModel.swift */,
 				C03E4F2728F0A2C100422297 /* MemoryGame_Model.swift */,
 				C0EDB60228EFDF100038AE29 /* Assets.xcassets */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0EDB60628EFDF100038AE29 /* Preview Assets.xcassets in Resources */,
+				C0F4FBEF28F60E3200B61982 /* README.txt in Resources */,
 				C0EDB60328EFDF100038AE29 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
