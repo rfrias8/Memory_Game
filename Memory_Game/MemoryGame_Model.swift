@@ -5,7 +5,6 @@
 //  Created by Rita Frias on 10/7/22.
 //
 //This is where we have the backend
-
 import Foundation
 
 struct MemoryGame<CardIcon> where CardIcon: Equatable{
@@ -45,15 +44,9 @@ struct MemoryGame<CardIcon> where CardIcon: Equatable{
     }
     
     
-    mutating func shuffle() {
-        cards.shuffle()
-    }
-    
-    mutating func restart() {
-//        cards.faceUp = false
-    }
-    
-    
+//    mutating func shuffle() {
+//        cards.shuffle()
+//    }
     init(cardPairsCount: Int, createCardContent: (Int) -> CardIcon) {
         cards = Array<Card>()
         //This for loop will take the num of cards and multiply by 2 and add them to the array

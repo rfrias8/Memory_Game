@@ -4,7 +4,6 @@
 //
 //  Created by Rita Frias on 10/7/22.
 //
-
 import SwiftUI
 
 
@@ -13,10 +12,14 @@ class AnimalMemoryGame: ObservableObject{
     static let emojis = ["🐵", "🐝", "🐙", "🦀","🐼", "🐻", "🦊", "🐸","🐷", "🐔", "🐥", "🦇","🐶", "🦄", "🦋", "🐢","🐭","🐛", "🐍", "🐬", "🦍","🦩", "🦏", "🦒"]
     
     
-    @Published private var model: MemoryGame<String> =
-    MemoryGame<String>(cardPairsCount: 6, createCardContent: {(indexOfPair:Int) -> String in
-        return AnimalMemoryGame.emojis[indexOfPair]
-    })
+   
+    private static func createGame() -> MemoryGame<String> {
+        MemoryGame<String>(cardPairsCount: 6, createCardContent: {(indexOfPair:Int) -> String in
+            return AnimalMemoryGame.emojis[indexOfPair]
+        })
+    }
+        
+    @Published private var model = createGame()
     
     
     var cards: Array<MemoryGame<String>.Card> {
@@ -29,11 +32,11 @@ class AnimalMemoryGame: ObservableObject{
         model.chooseCard(card)
     }
 
-    func shuffle() {
-        model.shuffle()
-    }
+//    func shuffle() {
+//        model.shuffle()
+//    }
     
     func restart() {
-        model.restart()
+        model = AnimalMemoryGame.createGame()
     }
 }

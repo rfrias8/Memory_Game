@@ -4,7 +4,6 @@
 //
 //  Created by Rita Frias on 10/6/22.
 //
-
 import SwiftUI
 
 struct ContentView: View {
@@ -14,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             gameBody
-            shuffle
+            restart
         }
         .padding()
     }
@@ -35,12 +34,20 @@ struct ContentView: View {
            
     }
     
-    var shuffle: some View {
-        Button("Shuffle") {
-            viewModel.shuffle()
+//    var shuffle: some View {
+//        Button("Shuffle") {
+//            withAnimation {
+//                viewModel.shuffle()
+//            }
+//        }
+//    }
+    
+    var restart: some View{
+        Button("New Game") {
             viewModel.restart()
         }
     }
+    
 }
 
 //These are what the cards look like and contain inside
