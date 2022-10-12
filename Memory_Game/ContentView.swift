@@ -16,6 +16,7 @@ struct ContentView: View {
             gameBody
             shuffle
         }
+        .padding()
     }
     
     var gameBody: some View {
@@ -29,7 +30,6 @@ struct ContentView: View {
                            }
                    })
                })
-               .padding(.horizontal)
                .foregroundColor(.red)
            }
            
@@ -37,9 +37,8 @@ struct ContentView: View {
     
     var shuffle: some View {
         Button("Shuffle") {
-            withAnimation {
-                viewModel.shuffle()
-            }
+            viewModel.shuffle()
+            viewModel.restart()
         }
     }
 }

@@ -35,10 +35,6 @@ struct MemoryGame<CardIcon> where CardIcon: Equatable{
         print("\(cards)")
     }
     
-    mutating func shuffle() {
-        cards.shuffle()
-    }
-    
     func index(of card: Card) -> Int? {
         for index in 0..<cards.count {
             if cards[index].id == card.id{
@@ -47,6 +43,16 @@ struct MemoryGame<CardIcon> where CardIcon: Equatable{
         }
         return nil
     }
+    
+    
+    mutating func shuffle() {
+        cards.shuffle()
+    }
+    
+    mutating func restart() {
+//        cards.faceUp = false
+    }
+    
     
     init(cardPairsCount: Int, createCardContent: (Int) -> CardIcon) {
         cards = Array<Card>()

@@ -28,8 +28,12 @@ class AnimalMemoryGame: ObservableObject{
     func flip(_ card: MemoryGame<String>.Card) {
         model.chooseCard(card)
     }
-    
-    func randomize() {
+
+    func shuffle() {
         model.shuffle()
+    }
+    
+    func restart() {
+        model.restart()
     }
 }
